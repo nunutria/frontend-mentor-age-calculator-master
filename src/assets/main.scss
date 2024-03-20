@@ -1,0 +1,175 @@
+@import "./base.scss";
+
+/* Age Calculator Default Styles */
+:root {
+    /* Typeography */
+    --title-font-weight: 800;
+}
+
+/* ----- Base Styles ----- */
+
+/* ----- Layout ------ */
+
+.age-calculator {
+    width: 100%;
+    max-width: 53.125rem;
+    position: relative;
+    margin: 0;
+    padding: 1rem;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: var(--clr-white);
+    --small-border-radius: 1.25rem;
+    --large-border-radius: 10.9375vmin;
+    border-top-left-radius: var(--small-border-radius);
+    border-top-right-radius: var(--small-border-radius);
+    border-bottom-left-radius: var(--small-border-radius);
+    border-bottom-right-radius: var(--large-border-radius);
+
+    @media screen and (min-width: 60em) {
+        padding: 2.5rem;
+    }
+}
+
+/* ----- Age Input Values ----- */
+.age-calculator__input-values {
+    display: grid;
+    margin-bottom: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media screen and (min-width: 40em) {
+        grid-template-columns: repeat(4, 0.75fr);
+        gap: 1.5rem;
+    }
+}
+
+.age-calculator__input-group {
+    display: grid;
+    gap: 0;
+}
+
+@import "./component_styles/InputField.scss";
+
+/* ----- Age Calculator Action ----- */
+.age-calculator-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    position: relative;
+    transition: all 0.2s ease;
+
+    @media screen and (min-width: 40em) {
+        margin: 0;
+        justify-content: flex-end;
+    }
+
+    &::before {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: var(--clr-light-gray);
+        content: "";
+        position: absolute;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        outline: none;
+        border: none;
+        background: var(--clr-primary);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        position: relative;
+        right: 0;
+
+        &:hover {
+            background: var(--clr-off-black);
+        }
+
+        @media screen and (min-width: 40em) {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        &:active {
+            transform: translateY(0.25rem);
+            background: var(--clr-primary);
+        }
+    }
+}
+
+/* ----- Calculated Age ------ */
+.calculated-age {
+    display: grid;
+    gap: 0;
+    position: relative;
+    margin-top: 1.5rem;
+
+    @media screen and (min-width: 40em) {
+        margin-top: 0;
+    }
+
+    .years,
+    .months,
+    .days,
+    .data-label {
+        font-size: 3.5rem;
+        font-style: italic;
+        font-weight: var(--title-font-weight);
+        line-height: 1.125em;
+        letter-spacing: -0.01em;
+
+        span {
+            font-weight: var(--title-font-weight);
+            color: var(--clr-primary);
+        }
+
+        @media screen and (min-width: 40em) {
+            font-size: 5.375rem;
+        }
+    }
+
+    .data-value {
+        display: inline-block;
+        width: auto;
+        padding-right: 1rem;
+
+        &.triple-digits {
+            width: 155px;
+        }
+    }
+
+    .years,
+    .months,
+    .days {
+        display: flex;
+        height: 1em span {
+            position: absolute;
+            display: inline-block;
+            width: 100px;
+        }
+    }
+}
+
+/* ----- Attribution ----- */
+.attribution {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 1rem;
+    font-size: 11px;
+    text-align: center;
+
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}

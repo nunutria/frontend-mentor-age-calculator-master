@@ -1,0 +1,74 @@
+:root {
+    /* Inputs */
+    --input-padding: 1rem;
+    --input-font-size: 2rem;
+    --input-border-radius: 0.5rem;
+    --input-placeholder-color: var(--clr-smokey-gray);
+    --input-border-color: var(--clr-light-gray);
+    --input-label-color: var(--clr-smokey-gray);
+    --input-label-size: 0.875rem;
+    --input-focus-border-color: var(--clr-primary);
+    --input-error-color: var(--clr-light-red);
+    --input-error-font-size: 0.75rem;
+}
+
+.label {
+    font-size: var(--input-label-size);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--clr-smokey-gray);
+    transition: color 200ms ease;
+}
+
+.error-message {
+    font-size: var(--input-error-font-size);
+    margin-top: 0.25rem;
+    font-style: italic;
+    transition: all 0.2s ease;
+    transform: translateY(-1rem);
+    opacity: 0;
+
+    &--show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    &--hide {
+        transform: translateY(-1rem);
+    }
+}
+
+.error {
+    color: var(--input-error-color);
+}
+
+input[type="text"] {
+    display: inline-block;
+    padding: 1em;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: var(--input-border-radius);
+    outline: none;
+    border: 1px solid var(--input-border-color);
+    width: 100%;
+    transition: all 200ms ease;
+
+    @media screen and (min-width: 40em) {
+        padding: 0.5em;
+        max-width: 12rem;
+        font-size: var(--input-font-size);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        outline: none;
+        color: var(--clr-black);
+        border-color: var(--input-focus-border-color);
+    }
+
+    &.error {
+        border-color: var(--clr-light-red);
+    }
+}
